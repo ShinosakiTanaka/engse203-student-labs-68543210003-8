@@ -65,20 +65,23 @@ function DashboardPage() {
       inProgress: requests.filter((request) => request.status === "in-progress")
         .length,
       completed: requests.filter((request) => request.status === "completed")
-        .length, // 👈 แก้ไขจุดนี้: เปลี่ยนจาก 'in-progress' เป็น 'completed'
+        .length, //  แก้ไขจุดนี้: เปลี่ยนจาก 'in-progress' เป็น 'completed'
     }),
     [requests],
-  ); // 👈 แก้ไขจุดนี้: ใส่ [requests] เพื่อให้คำนวณใหม่เมื่อข้อมูลโหลดเสร็จ
+  ); //  แก้ไขจุดนี้: ใส่ [requests] เพื่อให้คำนวณใหม่เมื่อข้อมูลโหลดเสร็จ
 
-  // 👇 แก้ไขจุดนี้ (CP-B2.2): กรองคำร้องจาก requestType หรือ location โดยแปลงเป็นตัวพิมพ์เล็กและตัดช่องว่าง
- const filteredRequests = requests.filter((request) => {
+  //  แก้ไขจุดนี้ (CP-B2.3): กรองสถานะและคำค้นหาร่วมกัน
+  const filteredRequests = requests.filter((request) => {
+    const matchStatus =
+      statusFilter === "all" || request.status === statusFilter;
+
     const term = searchText.toLowerCase().trim();
-    if (!term) return true;
+    const matchSearch =
+      !term ||
+      request.requestType?.toLowerCase().includes(term) ||
+      request.location?.toLowerCase().includes(term);
 
-    const matchType = request.requestType?.toLowerCase().includes(term);
-    const matchLocation = request.location?.toLowerCase().includes(term);
-
-    return matchType || matchLocation;
+    return matchStatus && matchSearch;
   });
 
   function handleRetry() {
