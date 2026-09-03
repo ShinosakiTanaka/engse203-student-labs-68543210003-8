@@ -23,7 +23,7 @@ function RequestDetailPage() {
       if (ignore) return;
       setErrorMessage(error instanceof Error ? error.message : 'โหลดรายละเอียดไม่สำเร็จ');
       setLoadState('error');
-    });
+    }, [requestId, reloadKey]); // อันเก่า ใส่ [] ว่างไว้ ทำให้ไม่โหลดข้อมูลซ้ำเมื่อ requestId เปลี่ยน หรือเมื่อกดปุ่ม retry (reloadKey) เเล้วเเก้ใส่เพิ่ม 
     return () => { ignore = true; };
   }, []);
 
