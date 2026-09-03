@@ -71,7 +71,7 @@ function DashboardPage() {
   ); // 👈 แก้ไขจุดนี้: ใส่ [requests] เพื่อให้คำนวณใหม่เมื่อข้อมูลโหลดเสร็จ
 
   // 👇 แก้ไขจุดนี้ (CP-B2.2): กรองคำร้องจาก requestType หรือ location โดยแปลงเป็นตัวพิมพ์เล็กและตัดช่องว่าง
-  const filteredRequests = requests.filter((request) => {
+ const filteredRequests = requests.filter((request) => {
     const term = searchText.toLowerCase().trim();
     if (!term) return true;
 
