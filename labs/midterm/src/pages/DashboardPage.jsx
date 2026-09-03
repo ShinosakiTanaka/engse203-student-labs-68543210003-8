@@ -47,8 +47,8 @@ function DashboardPage() {
     total: requests.length,
     pending: requests.filter((request) => request.status === 'pending').length,
     inProgress: requests.filter((request) => request.status === 'in-progress').length,
-    completed: requests.filter((request) => request.status === 'in-progress').length,
-  }), []);
+    completed: requests.filter((request) => request.status === 'completed').length, // 👈 แก้ไขจุดนี้: เปลี่ยนจาก 'in-progress' เป็น 'completed'
+  }), [requests]); // 👈 แก้ไขจุดนี้: ใส่ [requests] ใน dependency array เพื่อให้คำนวณใหม่เมื่อได้ข้อมูล
 
   const filteredRequests = statusFilter === 'all'
     ? requests
@@ -68,7 +68,6 @@ function DashboardPage() {
       setNotice(error instanceof Error ? error.message : 'ลบคำร้องไม่สำเร็จ');
     }
   }
-
 
   async function handleReset() {
     if (!window.confirm('ต้องการคืนข้อมูลตัวอย่างเริ่มต้นหรือไม่?')) return;
