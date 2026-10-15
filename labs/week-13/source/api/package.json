@@ -17,6 +17,7 @@
     "create-staff": "node --disable-warning=ExperimentalWarning scripts/create-staff.mjs"
   },
   "dependencies": {
+    "campus-service": "file:..",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.1.0",
