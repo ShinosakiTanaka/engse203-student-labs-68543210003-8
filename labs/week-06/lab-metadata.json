@@ -5,7 +5,7 @@
   "sourceOrigin": "monorepo-folder",
   "originalRepoUrl": "https://github.com/ShinosakiTanaka/engse203-student-labs-68543210003-8",
   "originalCommit": "18b18ea",
-  "pullRequestUrl": "https://github.com/ShinosakiTanaka/engse203-student-labs-68543210003-8/pull/6",
+  "pullRequestUrl": "https://github.com/ShinosakiTanaka/engse203-student-labs-68543210003-8/pull/10",
   "submissionTag": "lab-06-submission-v1",
   "testStatus": "pass",
   "notes": "พัฒนา REST API สำหรับระบบแจ้งปัญหาพื้นที่ส่วนกลางด้วย Express รองรับการเรียกดูรายการคำร้อง การค้นหาคำร้องตามรหัส การสร้างคำร้อง การเปลี่ยนสถานะ และการลบคำร้อง พร้อมจัดเก็บข้อมูลลงไฟล์ JSON และทดสอบ API ด้วย Postman"
